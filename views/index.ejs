@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://kit.fontawesome.com/391827d54c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="main flex h-screen w-screen overflow-hidden  bg-slate-900">
+
+      <div class="left h-full w-2/6 bg-slate-500 border-r-2">
+
+        <!-- top-section -->
+          <header class="p-3 flex justify-between bg-slate-600">
+          <div class="flex items-center gap-2">
+            <div class="img-container h-20 w-20 bg-slate-700 rounded-full overflow-hidden border-4 border-green-500">
+              <img class="h-full w-full object-cover" src="<%= user.dp %>" alt="">
+            </div>
+            <div class="text-3xl font-bold capitalize"><%= user.username %></div>
+          </div>
+          <div class="flex items-center gap-5 mr-2">
+            <p class="font-semibold text-gray-300 text-2xl "><i class="fa-solid fa-users"></i></p>
+            <p class="font-semibold text-gray-300 text-2xl "><i class="fa-solid fa-message"></i></p>
+            <p class="font-semibold text-gray-300 text-2xl "><i class="fa-solid fa-ellipsis-vertical"></i></p>
+          
+          </div>
+          </header>
+
+        <!-- notification -->
+          <div class="notif-box  flex items-center justify-between p-4 border-t-2 ">
+            <div class="flex items-center ">
+            <div class="notif-text flex gap-7">
+              <i class="fa-solid fa-bell-slash flex"></i>
+            </div>  
+            <div>
+                <p>Get Notified of New Messages</p>
+                <a href="#">Turn on Desktop Notifications ›</a>
+            </div>
+            </div>
+          <i id="notif-cut" class="fa-solid fa-xmark"></i>
+          </div>
+
+        <!-- search-section -->
+          <div class="search-container w-full h-16 flex items-center bg-slate-500 relative border-t-2 ">
+          <div class="input w-full px-4">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="w-full text-center h-10 text-2xl" type="text" placeholder="Search or start new chat   "></div>
+            <i  class="fa-sharp fa-solid fa-bars-filter"></i>
+          </div>
+
+          <div class="chat-list  border-t-2  ">
+          </div> 
+  
+      </div>
+ 
+
+      <div  class="right-side h-full w-full bg-slate-700 hidden">
+
+        <header class="p-3 flex justify-between bg-slate-600">
+          <div class="flex items-center gap-2">
+            <div class="img-container h-20 w-20 bg-slate-700 rounded-full overflow-auto">
+              <img id="current-ChatDp" src="" alt="">
+            </div>
+            <div id="current-chat-Username" class="text-3xl font-bold">UserName</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <p class="font-semibold text-amber-800 ">###</p>
+            <p class="font-semibold text-gray-300 text-2xl "><i class="fa-solid fa-ellipsis-vertical"></i></p>
+          </div>
+        </header>
+
+        <!--chat-container -->
+          <div class="chat-container">
+
+          </div>
+
+        <!--input-bottom -->
+          <div class="chatbox-input">
+        <i class="fa-regular fa-face-grin"></i>
+        <i class="fa-sharp fa-solid fa-paperclip"></i>
+        <input type="text" id="inputmsg" placeholder="Type a message">
+        <i class="fa-solid fa-microphone"></i>
+          </div>
+
+      </div>
+      
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+     const loggedInUsername = `<%= user.username %>`
+     const loggedInUserId = `<%= user._id %>`
+      
+    </script>
+    <script src="../javascripts/client.js"></script>
+  </body>
+</html>
+
+
